@@ -1,0 +1,40 @@
+blueprint:
+  name: Mini Graph Card
+  description: An custom mini graph card by Damien Shiers
+  version: "1.0"
+  type: card
+  custom_cards:
+    - mini-graph-card
+  input:
+
+    graph_card_name:
+      name: Graph Card Name
+    graph_card_entity:
+      name: Graph Entity
+      description: Enter the entity id for the graph card
+    graph_text_size:
+      name: Font Size
+      description: Set Title Font Size
+
+card:
+  type: custom:dwains-flexbox-card
+  items_classes: 'col-xs-12'
+  cards:
+     - type: horizontal-stack
+       cards:
+         - type: custom:mini-graph-card
+           align_header: left
+           align_icon: left
+           entities:
+             - entity: $graph_card_entity$
+           font_size: $graph_text_size$
+           hours_to_show: 24
+           name: $graph_card_name$
+           points_per_hour: 4
+           show:
+             extrema: true
+             icon: true
+             icon_adaptive_color: true
+             labels: true
+             name_adaptive_color: true
+             

@@ -1,0 +1,36 @@
+blueprint:
+  name: Custom Button Card For Light Entities
+  description: A custom Button card by Damien Shiers
+  version: "1.0.1"
+  type: card
+  custom_cards:
+    - button-card
+  input:
+    light_card_name:
+      name: Light Card Name
+    light_card_entity:
+      name: Light Entity
+      description: Enter the entity id for the light card
+    light_icon:
+      name: Light Icon
+      description: Set icon from MDI
+    light_action:
+      name: Light Hold Action
+      description: more-info, toggle
+
+card:
+  type: custom:dwains-flexbox-card
+  items_classes: 'col-xs-12'
+  cards:
+     - type: horizontal-stack
+       cards:
+         - type: custom:button-card
+           entity: $light_card_entity$
+           icon: $light_icon$
+           name: $light_card_name$
+           hold_action:
+             action: $light_action$
+           styles:
+             card:
+               - height: 113px
+             

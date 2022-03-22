@@ -1,0 +1,36 @@
+blueprint:
+  name: Custom Button Card For Switch Entities
+  description: A custom Button card by Damien Shiers
+  version: "1.0"
+  type: card
+  custom_cards:
+    - button-card
+  input:
+    button_card_name:
+      name: Button Card Name
+    button_card_entity:
+      name: Button Entity
+      description: Enter the entity id for the button card
+    button_icon:
+      name: Button Icon
+      description: Set icon from MDI
+    button_action:
+      name: Button Hold Action
+      description: more-info, toggle
+
+card:
+  type: custom:dwains-flexbox-card
+  items_classes: 'col-xs-12'
+  cards:
+     - type: horizontal-stack
+       cards:
+         - type: custom:button-card
+           entity: $button_card_entity$
+           icon: $button_icon$
+           name: $button_card_name$
+           hold_action:
+             action: $button_action$
+           styles:
+             card:
+               - height: 113px
+             
